@@ -1,0 +1,8 @@
+.label {
+    -fx-font-size: 12pt;
+    -fx-font-weight: bold; 
+}
+
+#salida {
+    -fx-alignment: CENTER;
+}

@@ -1,0 +1,63 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.iescelia</groupId>  <!-- Pon aquí el nombre de tu paquete -->
+  <artifactId>7.06-ConcatenarArchivos</artifactId> <!-- Pon aquí el nombre de tu proyecto -->
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>7.06-ConcatenarArchivos</name>  <!-- Pon aquí el nombre de tu proyecto otra vez -->
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-controls</artifactId>
+        <version>17</version>
+    </dependency>
+    <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-fxml</artifactId>
+        <version>17</version>
+    </dependency>
+    <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-graphics</artifactId>
+        <version>17</version>
+    </dependency>
+  </dependencies>
+  <build>
+      <plugins>
+          <plugin>
+              <groupId>org.openjfx</groupId>
+              <artifactId>javafx-maven-plugin</artifactId>
+              <version>0.0.5</version>  <!-- Hay versiones más recientes, pero esta es muy estable -->
+              <configuration>
+                <mainClass>com.iescelia.App</mainClass> <!-- Pon tu clase principal aquí -->
+              </configuration>              
+              <executions>
+                  <execution>
+                      <goals>
+                          <goal>run</goal>
+                      </goals>
+                  </execution>
+              </executions>
+          </plugin>
+
+          <!-- Configuración del plugin de compilación -->
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-compiler-plugin</artifactId>
+              <version>3.8.1</version> <!-- Usa una versión reciente del plugin -->
+              <configuration>
+                  <source>8</source> <!-- Versión de fuente de Java -->
+                  <target>8</target> <!-- Versión de destino de Java -->
+              </configuration>
+          </plugin>
+      </plugins>
+  </build>
+</project>
