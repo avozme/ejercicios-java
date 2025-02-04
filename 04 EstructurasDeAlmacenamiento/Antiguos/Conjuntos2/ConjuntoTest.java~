@@ -1,0 +1,19 @@
+class ConjuntoTest {
+	public static void main(String[] args) {
+	  ConjuntoDeEnteros c = new ConjuntoDeEnteros();
+
+	  c.insertarElemento(Integer.valueOf(5));
+	  c.insertarElemento(Integer.valueOf(8));
+          System.out.println("¿El número 5 está en el conjunto? " + c.esta(Integer.valueOf(5)));
+          System.out.println("¿El número 6 está en el conjunto? " + c.esta(Integer.valueOf(6)));
+	  System.out.println("¿Cuántos elementos hay en el conjunto? " + c.contarElementos());
+
+	  ConjuntoDeStrings c = new ConjuntoDeStrings();
+	  c.insertarElemento("Pepito");
+	  c.insertarElemento("Grillo");
+	  System.out.println("¿La cadena Grillo está en el conjunto? " + c.esta("Grillo"));
+	  System.out.println("¿La cadena Giusseppe está en el conjunto? " + c.esta("Giusseppe"));
+	  System.out.println("¿Cuántos elementos hay en el conjunto? " + c.contarElementos());
+
+	}
+}

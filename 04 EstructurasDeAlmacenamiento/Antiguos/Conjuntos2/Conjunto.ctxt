@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Conjunto()
+comment1.params=e
+comment1.target=int\ insertarElemento(java.lang.Object)
+comment2.params=
+comment2.target=void\ vaciarConjunto()
+comment3.params=
+comment3.target=int\ contarElementos()
+comment4.params=e
+comment4.target=void\ borrarElemento(java.lang.Object)
+comment5.params=e
+comment5.target=boolean\ esta(java.lang.Object)
+numComments=6

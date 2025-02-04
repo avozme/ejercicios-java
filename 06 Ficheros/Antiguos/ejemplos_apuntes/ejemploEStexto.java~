@@ -1,0 +1,33 @@
+import java.io.*;
+
+public class ejemploEStexto
+{
+   public static void main(String[] args)
+   {
+      int c = 0;
+      int i = 0;
+      char[] cad = new char[100];
+      try
+      {
+         FileReader finput = new FileReader("fichero_origen.txt");
+         FileWriter foutput = new FileWriter("fichero_destino.txt");
+
+         // El valor c == -1 indicará fin del fichero de entrada
+         while (c != -1)
+         {
+            i = 0;  // Contador para indexar el array de caracteres
+            c = finput.read();
+            while ((c != -1) && (i < 100))
+            {
+               cad[i] = (char)c;  // Guardamos el carácter leído en el array
+               i++;
+               c = finput.read();
+            }
+            foutput.write(cad);  // Escribimos en el array
+         }
+         if (finput != null) finput.close();
+         if (foutput != null) foutput.close();
+      }
+      catch (IOException e) { e.printStackTrace(); }
+   }
+}

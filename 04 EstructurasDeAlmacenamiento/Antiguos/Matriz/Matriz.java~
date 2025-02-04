@@ -1,0 +1,103 @@
+class Matriz {
+
+
+	private final int N = 10;   // Tamaño de la martriz cuadrada
+	private int[][] m;         // Matriz
+
+	public Matriz() 
+	{ 
+		int f, c; 
+		m = new int[N][N]; 
+
+		// Rellenamos la matriz con números al azar
+		for (f = 0; f < N; f++) 
+			for (c = 0; c < N; c++) 
+				m[f][c] = (int)(Math.random() * 10); 
+
+	} 
+
+
+	/** Muestra por la pantalla la matriz 
+          */ 
+	public void mostrar() 
+	{ 
+		int f, c; 
+
+		for (f = 0; f < N; f++) 
+		{ 
+			for (c = 0; c < N; c++) 
+			{ 
+				System.out.print(m[f][c] +  " "); 
+			} 
+			System.out.println(); 
+		} 
+
+	} 
+
+
+	/** Muestra el perímetro de la matriz 
+          */ 
+	public void perimetro() 
+	{ 
+		int f, c; 
+
+		System.out.println("El perímetro es:\n"); 
+
+		/* Mostramos fila superior (de izquierda a derecha) */ 
+		for (c = 0; c < N; c++) 
+			System.out.print(m[0][c] + " "); 
+		/* Mostramos columna derecha (de arriba a abajo) */ 
+		for (f = 1; f < N; f++) 
+			System.out.print(m[f][N-1] +  " "); 
+		/* Mostramos fila inferior (de derecha a izquierda) */ 
+		for (c = N-2; c >= 0; c--) 
+			System.out.print(m[N-1][c] + " "); 
+		/* Mostramos columna izquierda (de abajo a arriba) */ 
+		for (f = N-2; f >= 1; f--) 
+			System.out.print(m[f][0] + " "); 
+
+		System.out.println(); 
+	} 
+
+
+	/** Muestra la espiral de la matriz. 
+	  * Para lograrlo, hacemos un perímetro de la matriz completa y luego 
+	  * vamos acotando los límites para hacer un perímetro de la matriz 
+	  * interna. 
+          */ 
+	void espiral() 
+	{ 
+		int f, c, cont, izq, der, arr, aba; 
+	 
+		System.out.println("La espiral es:"); 
+
+		izq = 0; 	/* Límites del perímetro */
+		der = N; 
+		arr = 0; 
+		aba = N; 
+
+		for (cont = 0; cont <= N/2; cont++) 
+		{ 
+			/* Mostramos fila superior (de izquierda a derecha) */ 
+			for (c = izq; c < der; c++) 
+				System.out.print(m[arr][c] + " "); 
+			/* Mostramos columna derecha (de arriba a abajo) */ 
+			for (f = arr + 1; f < aba; f++) 
+				System.out.print(m[f][der-1] + " "); 
+			/* Mostramos fila inferior (de derecha a izquierda) */ 
+			for (c = der-2; c >= izq; c--) 
+				System.out.print(m[aba-1][c] + " "); 
+			/* Mostramos columna izquierda (de abajo a arriba) */ 
+			for (f = aba-2; f >= arr+1; f--) 
+				System.out.print(m[f][izq] + " "); 
+
+			izq++; 		/* Actualizamos límites del perímetro */
+			der--; 
+			arr++; 
+			aba--; 
+		} 
+
+		System.out.println(); 
+	} 
+
+}

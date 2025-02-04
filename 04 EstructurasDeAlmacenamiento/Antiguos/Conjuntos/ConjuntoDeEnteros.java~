@@ -1,0 +1,50 @@
+class ConjuntoDeEnteros implements Conjunto {
+
+    private int[] conjunto;
+    private int cont;
+    private final int TAM = 100;	// Tamaño máximo del conjunto
+    
+    public ConjuntoDeEnteros() {
+      conjunto = new int[TAM];
+      cont = 0;
+      for (int i = 0; i < TAM; i++) {
+	conjunto[i] = 0;
+      }
+    }  
+
+    public int insertarElemento(int e) {
+      int res = 1;
+      if (cont == TAM) res = 0;
+      else {
+	conjunto[cont] = e;
+	cont++;
+      }
+      return res;
+    }
+    
+    
+    public void borrarElemento(int e) {
+      for (int i = 0; i < TAM; i++) {
+	if (conjunto[i] == e) conjunto[i] = 0;
+      }
+    }
+    
+    public void vaciarConjunto() {
+      cont = 0;
+      for (int i = 0; i < TAM; i++) {
+	conjunto[i] = 0;
+      }
+    }
+	
+    public int contarElementos() {
+      return cont;
+    }
+    
+    public boolean esta(int e) {
+      boolean encontrado = false;
+      for (int = 0; i < TAM; i++) {
+	if (conjunto[i] == e) encontrado = true;
+      }
+      return encontrado;
+    }
+}
