@@ -7,12 +7,12 @@ import java.util.*;
  */
 public class Dispositivo {
     private int id;
+    private int tipo;        // 0 = dispositivo genérico, 1 = ordenador, 2 = impresora, etc.
+    private int idAjeno;     // Clave ajena para dispositivo hijo (ordenador, impresora, etc.). Será -1 si no tiene.
     private String marca;
     private String modelo;
     private boolean estado;  // true = funciona, false = no funciona
-    private int tipo;        // 0 = dispositivo genérico, 1 = ordenador, 2 = impresora, etc.
     private boolean borrado; // true = borrado, false = no borrado
-    private int idAjeno;     // Clave ajena para dispositivo hijo (ordenador, impresora, etc.)
     private final int TAM_REG = 4 + 50 + 50 + 1 + 4 + 1 + 4;  // Tamaño del registro (longitud fija)
 
     /**
@@ -89,7 +89,7 @@ public class Dispositivo {
      * Obtiene el estado del dispositivo.
      * @return El estado del dispositivo (true = funciona, false = no funciona).
      */
-    public boolean isEstado() {
+    public boolean getEstado() {
         return estado;
     }
 
@@ -121,7 +121,7 @@ public class Dispositivo {
      * Verifica si el dispositivo está marcado como borrado.
      * @return true si el dispositivo está marcado como borrado, false en caso contrario.
      */
-    public boolean isBorrado() {
+    public boolean getBorrado() {
         return borrado;
     }
 
@@ -172,12 +172,12 @@ public class Dispositivo {
             RandomAccessFile file = new RandomAccessFile("dispositivos.dat", "rw");
             file.seek(file.length()); // Nos movemos al final del archivo
             file.writeInt(id);
+            file.writeInt(tipo);
+            file.writeInt(idAjeno);
             escribirStringLongitudFija(file, marca, 50);   // Escribimos la marca para que ocupe siempre 50 bytes
             escribirStringLongitudFija(file, modelo, 50);  // Lo mismo con el modelo, porque queremos registros de longitud fija
             file.writeBoolean(estado);
-            file.writeInt(tipo);
             file.writeBoolean(borrado);
-            file.writeInt(idAjeno);
             return 0; // Todo fue bien
         } catch (IOException e) {
             e.printStackTrace();
@@ -190,6 +190,7 @@ public class Dispositivo {
      * @return 0 si la operación fue exitosa, 1 si hubo un error o no se encontró el dispositivo.
      */
     public int load() {
+        int result = 0;    // Resultado de la lectura (lo pondremos a 1 si hay algún error)
         try {
             RandomAccessFile file = new RandomAccessFile("dispositivos.dat", "r");
             long fileLength = file.length();
@@ -197,12 +198,12 @@ public class Dispositivo {
             while (file.getFilePointer() < fileLength) {
                 // Leemos el registro
                 int idTemp = file.readInt();
+                int tipoTemp = file.readInt();
+                int idAjenoTemp = file.readInt();
                 String marcaTemp = leerStringLongitudFija(file, 50);
                 String modeloTemp = leerStringLongitudFija(file, 50);
                 boolean estadoTemp = file.readBoolean();
-                int tipoTemp = file.readInt();
                 boolean borradoTemp = file.readBoolean();
-                int idAjenoTemp = file.readInt();
 
                 if (idTemp == this.id && !borradoTemp) {
                     this.marca = marcaTemp;
@@ -211,14 +212,15 @@ public class Dispositivo {
                     this.tipo = tipoTemp;
                     this.borrado = borradoTemp;
                     this.idAjeno = idAjenoTemp;
-                    return 0; // Todo bien
+                    result = 1; // Todo bien
                 }
             }
-            return 1; // No se encontró el dispositivo
+            result = 1; // No se encontró el dispositivo
         } catch (IOException e) {
             e.printStackTrace();
-            return 1; // Error de lectura
+            result = 1; // Error de lectura
         }
+        return result;
     }
 
     /**
@@ -227,30 +229,31 @@ public class Dispositivo {
      * @return 0 si la operación fue exitosa, 1 si hubo un error o no se encontró el dispositivo.
      */
     public int delete() {
+        int result = 0;
         try (RandomAccessFile file = new RandomAccessFile("dispositivos.dat", "rw")) {
             long fileLength = file.length();
             file.seek(this.id * this.TAM_REG);  // Saltamos al comienzo del registro que queremos borrar
             if (file.getFilePointer() < fileLength) {
                 int idTemp = file.readInt();
+                int tipoTemp = file.readInt();
+                int idAjenoTemp = file.readInt();
                 String marcaTemp = leerStringLongitudFija(file, 50);
                 String modeloTemp = leerStringLongitudFija(file, 50);
                 boolean estadoTemp = file.readBoolean();
-                int tipoTemp = file.readInt();
                 boolean borradoTemp = file.readBoolean();
-                int idAjenoTemp = file.readInt();
 
                 if (idTemp == this.id && !borradoTemp) { // Si encuentra el dispositivo
-                    ;
-                    file.seek(file.getFilePointer() - 5); // Retrocedemos 5 bytes para sobreescribir el boolean (4 bytes por idAjeno y 1 byte por borrado = 5 bytes)
+                    file.seek(file.getFilePointer() - 1); // Retrocedemos 1 byte para sobreescribir el boolean
                     file.writeBoolean(true); // Marcar como borrado
-                    return 0; // Dispositivo borrado correctamente
+                    result = 0; // Dispositivo borrado correctamente
                 }
             }
             return 1; // No se encontró el dispositivo
         } catch (IOException e) {
             e.printStackTrace();
-            return 1; // Error al borrar
+            result = 1; // Error al borrar
         }
+        return result;
     }
 
     /**
