@@ -37,14 +37,16 @@ public class Teclado {
      * También aceptará mayúsculas.
      */
     public static boolean leerBoolean(String mensaje) {
+        boolean result = false;
         Scanner sc = new Scanner(System.in);
         System.out.print(mensaje);
         try {
             String respuesta = sc.nextLine();
-            return respuesta.equalsIgnoreCase("s");
+            result = respuesta.equalsIgnoreCase("s");
         } catch (Exception e) {
             System.out.println("Error al leer el dato. Se devolverá false");
-            return false;
+            result = false;
         }
+        return result;
     }
 }

@@ -213,11 +213,11 @@ public class Main {
             if (d.getId() == id) {
                 System.out.println(d.toString());
                 String marca = Teclado.leerCadena("Introduce la marca [" + d.getMarca() + "]: ");
-                if (!marca.equals("")) {
+                if (!marca.equals("")) {  // Si se pulsa intro, no se modifica el campo
                     d.setMarca(marca);
                 }
                 String modelo = Teclado.leerCadena("Introduce el modelo [" + d.getModelo() + "]: ");
-                if (!modelo.equals("")) {
+                if (!modelo.equals("")) {  // Si se pulsa intro, no se modifica el campo
                     d.setModelo(modelo);
                 }
                 d.save();  // Guardamos los cambios en el fichero de datos de dispositivos
@@ -225,34 +225,24 @@ public class Main {
                     // El dispositivo es un ordenador. Vamos a preguntar por los campos específicos
                     Ordenador o = (Ordenador) d;
                     String procesador = Teclado.leerCadena("Introduce el procesador [" + o.getProcesador() + "]: ");
-                    if (!procesador.equals("")) {
+                    if (!procesador.equals("")) {  // Si se pulsa Intro, no se modifica el campo
                         o.setProcesador(procesador);
                     }
                     int ram = Teclado.leerEntero("Introduce la cantidad de RAM en GB [" + o.getRam() + "]: ");
-                    if (ram != 0) {
-                        o.setRam(ram);
-                    }
+                    o.setRam(ram);
                     int disco = Teclado.leerEntero("Introduce la capacidad del disco duro en GB [" + o.getDisco() + "]: ");
-                    if (disco != 0) {
-                        o.setDisco(disco);
-                    }
+                    o.setDisco(disco);
                     o.save();  // Guardamos los cambios en el fichero de datos de ordenadores                  
                 }
                 if (d.getTipo() == 2) {
                     // El dispositivo es una impresora. Vamos a preguntar por los campos específicos
                     Impresora i = (Impresora) d;
                     int tipoImpresora = Teclado.leerEntero("Introduce el tipo de impresora (1 = láser, 2 = inyección, 3 = otros) [" + i.getTipo() + "]: ");
-                    if (tipoImpresora != 0) {
-                        i.setTipoImpresora(tipoImpresora);
-                    }
+                    i.setTipoImpresora(tipoImpresora);
                     boolean color = Teclado.leerBoolean("¿Imprime en color? (s/n) [" + i.getColor() + "]: ");
-                    if (color != false) {
-                        i.setColor(color);
-                    }
+                    i.setColor(color);
                     boolean scanner = Teclado.leerBoolean("¿Tiene scanner? (s/n) [" + i.getScanner() + "]: ");
-                    if (scanner != false) {
-                        i.setScanner(scanner);
-                    }
+                    i.setScanner(scanner);
                     i.save();  // Guardamos los cambios en el fichero de datos de impresoras
                 }
                 encontrado = true;
