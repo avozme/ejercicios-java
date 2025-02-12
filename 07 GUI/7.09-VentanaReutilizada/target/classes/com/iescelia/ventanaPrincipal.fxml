@@ -10,12 +10,17 @@
 
 <VBox stylesheets="style.css" alignment="center" prefHeight="400.0" prefWidth="300.0" spacing="20.0" 
       xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" 
-    fx:controller="com.iescelia.Ejercicio2Controller">
+      fx:controller="com.iescelia.VentanaPrincipalController">
     <children>
-        <Label text="EJERCICIO 2 - LOTERÍA PRIMITIVA" styleClass="main-label"/>
-        <Button fx:id="btnCerrar" onAction="#cerrarVentana" text="Cerrar" />
+        <Label text="VENTANAS MÚLTIPLES" styleClass="main-label"/>
+        <Button fx:id="btnEjercicio1" onAction="#abrirNuevaVentana" text="Ejercicio 1" />
+        <Button fx:id="btnEjercicio2" onAction="#abrirNuevaVentana" text="Ejercicio 2" />
+        
+        <!-- Contenedor donde se cargarán las vistas dinámicamente -->
+        <VBox fx:id="contenedor" spacing="10.0" prefWidth="250.0" prefHeight="200.0" />
     </children>
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
 </VBox>
+
