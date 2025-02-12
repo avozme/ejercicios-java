@@ -1,0 +1,16 @@
+.main-label {
+    -fx-font-size: 12pt;
+    -fx-text-fill: red;
+    -fx-font-weight: bold; 
+}
+
+#salida {
+    -fx-control-inner-background: #555; /* Color de fondo */
+    -fx-text-fill: lightgreen;
+    -fx-font-size: 12pt;
+
+}
+
+TextField {
+    -fx-alignment: CENTER;
+}
