@@ -1,8 +1,9 @@
 package com.iescelia;
 
+import java.io.IOException;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
 
 public class Ejercicio1Controller {
 
@@ -10,10 +11,8 @@ public class Ejercicio1Controller {
     Button btnCerrar;
     
     @FXML
-    private void cerrarVentana() {
-        // Limpiar el contenedor y restaurar el contenido original
-        VentanaPrincipalController controladorPrincipal = new VentanaPrincipalController();
-        controladorPrincipal.cargarVista("ventanaPrincipal.fxml");
+    private void cerrarVentana() throws IOException {
+        App.setRoot("ventanaPrincipal.fxml");
     }
 
     // Aquí iría el resto del código del controlador del ejercicio 1 (tabla de multiplicar)
