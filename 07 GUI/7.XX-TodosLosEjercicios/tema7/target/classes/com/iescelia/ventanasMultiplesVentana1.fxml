@@ -10,9 +10,9 @@
 
 <VBox stylesheets="style.css" alignment="center" prefHeight="400.0" prefWidth="300.0" spacing="20.0" 
       xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" 
-    fx:controller="com.iescelia.VentanasMultiplesVentana2Controller">
+    fx:controller="com.iescelia.VentanasMultiplesVentana1Controller">
     <children>
-        <Label text="Esta es la VENTANA EMERGENTE 2" styleClass="main-label"/>
+        <Label text="Esta es la VENTANA EMERGENTE 1" styleClass="main-label"/>
         <Button fx:id="btnCerrar" onAction="#cerrarVentana" text="Cerrar" />
     </children>
    <padding>

@@ -16,4 +16,9 @@ public class PrimaryController {
         // de que los archivos fxml se llamen igual que el id de cada MenuItem
         App.setRoot(id);
     }
+
+    @FXML
+    private void salir() throws IOException {
+        System.exit(0);
+    }
 }

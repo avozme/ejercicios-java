@@ -5,13 +5,17 @@ import java.io.FileOutputStream;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextArea;
 
 public class GeneradorHTMLController {
     @FXML
     TextField headerText, headerSize, headerColor, headerFont;
 
     @FXML
-    TextField bodyText, bodySize, bodyColor, bodyFont;
+    TextField bodySize, bodyColor, bodyFont;
+
+    @FXML
+    TextArea bodyText;
 
     @FXML
     private void generarHTML(Event e) {
