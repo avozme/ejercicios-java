@@ -10,18 +10,11 @@
 
 <VBox stylesheets="style.css" alignment="center" prefHeight="400.0" prefWidth="300.0" spacing="20.0" 
       xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" 
-    fx:controller="com.iescelia.TablaMultiplicarController">
+    fx:controller="com.iescelia.VentanasMultiplesController">
     <children>
-        <Label text="TABLA DE MULTIPLICAR" styleClass="main-label"/>
-        <HBox alignment="CENTER" spacing="20.0">
-            <Label text="Escribe un número:" />
-            <TextField fx:id="numero" promptText="Escribe un número" maxWidth="50"/>
-        </HBox>
-        <HBox alignment="CENTER" spacing="20.0">
-            <Button onAction="#mostrarTabla" text="Calcular tabla" />
-            <Button onAction="#borrarTabla" text="Borrar tabla" />
-        </HBox>
-        <TextArea fx:id="salida" prefHeight="300.0" styleClass="text-area"/>
+        <Label text="VENTANAS MÚLTIPLES" styleClass="main-label"/>
+        <Button fx:id="btn1" onAction="#abrirNuevaVentana" text="Abrir ventana 1" />
+        <Button fx:id="btn2" onAction="#abrirNuevaVentana" text="Abrir ventana 2" />
     </children>
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

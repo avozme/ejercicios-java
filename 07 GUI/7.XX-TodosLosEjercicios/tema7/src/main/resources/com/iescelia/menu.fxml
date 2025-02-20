@@ -1,0 +1,26 @@
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:id="menu" fx:controller="com.iescelia.PrimaryController">
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="Ejercicios">
+            <items>
+                  <MenuItem fx:id="tablaMultiplicar" onAction="#abrirEjercicio" mnemonicParsing="false" text="Ejercicio 1. Tabla de multiplicar" />
+                  <MenuItem fx:id="loteriaPrimitiva" onAction="#abrirEjercicio" mnemonicParsing="false" text="Ejercicio 2. Lotera primitiva" />
+                  <MenuItem fx:id="generadorHTML" onAction="#abrirEjercicio" mnemonicParsing="false" text="Ejercicio 3. Generador de HTML" />
+                  <MenuItem fx:id="fusionarArchivos" onAction="#abrirEjercicio"  mnemonicParsing="false" text="Ejercicio 6. Fusionar archivos" />
+                  <MenuItem fx:id="ventanasMultiples" onAction="#abrirEjercicio" mnemonicParsing="false" text="Ejercicio 7. Ventanas multiples" />
+                  <MenuItem fx:id="ventanasModales" onAction="#abrirEjercicio" mnemonicParsing="false" text="Ejercicio 8. Ventanas modales" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Ayuda">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Acerca de" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+</VBox>
