@@ -26,4 +26,8 @@ public class TablaMultiplicarController {
     private void borrarTabla(Event e) {
         salida.setText("");
     }    
+
+    public void setNumero(String s) {
+        numero.setText(s);;
+    }
 }
