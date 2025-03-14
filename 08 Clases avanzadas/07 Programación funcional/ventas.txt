@@ -1,0 +1,5 @@
+Sombrero;3;24,90
+Gorra;2;9,40
+Camisa;5;28.10
+Calcetines;1;5,50
+Gorra;1;9,40
