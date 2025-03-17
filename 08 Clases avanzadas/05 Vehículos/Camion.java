@@ -10,15 +10,15 @@ class Camion extends Vehiculo implements Conducible {
     @Override
     public double getConsumo() {
         if (carga) {
-            return super.getConsumo() * 1.5; // Si el camión está cargado, el consumo aumenta un 50%
+            return consumo * 1.5; // Si el camión está cargado, el consumo aumenta un 50%
         } else {
-            return super.getConsumo();
+            return consumo;
         }
     }
 
     @Override
     public void setConsumo(double consumo) {
-        super.setConsumo(consumo);
+        this.consumo = consumo;
     }
 
     // Implementación del método conducir de la interfaz Conducible

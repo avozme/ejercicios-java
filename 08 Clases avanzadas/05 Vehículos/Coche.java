@@ -7,12 +7,12 @@ class Coche extends Vehiculo implements Conducible {
     // Implementación del método abstracto getConsumo
     @Override
     public double getConsumo() {
-        return super.getConsumo(); // El consumo del coche es el que se asigna directamente
+        return consumo; // El consumo del coche es el que se asigna directamente
     }
 
     @Override
     public void setConsumo(double consumo) {
-        super.setConsumo(consumo);
+        this.consumo = consumo;
     }
 
     // Implementación del método conducir de la interfaz Conducible

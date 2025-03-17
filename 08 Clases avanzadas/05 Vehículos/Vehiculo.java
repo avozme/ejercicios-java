@@ -2,7 +2,7 @@ abstract class Vehiculo {
     private String marca;
     private String modelo;
     private double cantidadCombustible; // En litros
-    private double consumo; // Consumo en litros por cada 100 km
+    protected double consumo; // Consumo en litros por cada 100 km
 
     // Constructor
     public Vehiculo(String marca, String modelo, double cantidadCombustible, double consumo) {
@@ -37,15 +37,13 @@ abstract class Vehiculo {
         this.cantidadCombustible = cantidadCombustible;
     }
 
-    public double getConsumo() {
-        return consumo;
-    }
+    public abstract double getConsumo();
 
-    public void setConsumo(double consumo) {
-        this.consumo = consumo;
-    }
+    public abstract void setConsumo(double consumo);
 
-    // Método abstracto toString
     @Override
-    public abstract String toString();
+    public String toString() {
+        String s = "Marca: " + marca + ", modelo = " + modelo + ", cantidad de combustible = " + cantidadCombustible + " litros";
+        return s;
+    }
 }
