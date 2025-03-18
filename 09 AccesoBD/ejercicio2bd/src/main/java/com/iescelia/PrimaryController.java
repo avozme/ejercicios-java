@@ -43,9 +43,13 @@ public class PrimaryController {
             // Cuando se edita el campo "nick", se guarda automáticamente
             Usuario usuario = event.getRowValue();
             usuario.setNick(event.getNewValue());  // Actualiza el valor de la propiedad 'nick'
-    
-            // Guardar la fila en la base de datos
-            guardarFila(usuario);
+            guardarFila(usuario);                  // Actualiza la fila en la base de datos
+        });        
+        colEmail.setOnEditCommit(event -> {
+            // Cuando se edita el campo "email", también se guarda automáticamente
+            Usuario usuario = event.getRowValue();
+            usuario.setEmail(event.getNewValue());  // Actualiza el valor de la propiedad 'email'
+            guardarFila(usuario);                   // Actualiza la fila en la base de datos
         });        
         // Asignamos la ObservableList de usuarios al TableView. Así, cada vez que cambie la lista,
         // la vista se actualizará automáticamente.
@@ -134,19 +138,9 @@ public class PrimaryController {
     }
 
 
-    // Método para guardar la fila cuando el usuario la complete
+    // Método para guardar la fila en la base de datos
     public void guardarFila(Usuario usuario) {
-        // Aquí puedes hacer lo que necesites, como insertar en la base de datos
-        // Agregar el nuevo usuario a la base de datos
-        insertarUsuarioEnBD(usuario);
-
-        // Luego puedes quitar la fila vacía si fue editada y guardada correctamente
-        if (usuario.getId() == 0) {
-            usuarios.remove(usuario);  // Eliminar la fila vacía si es necesario
-        }
-    }
-
-    private void insertarUsuarioEnBD(Usuario usuario) {
-        // Lógica para insertar el usuario en la base de datos
+        // (TODO)
+        System.out.println("Guardando fila en la base de datos: " + usuario);
     }    
 }
