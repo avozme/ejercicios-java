@@ -15,7 +15,7 @@
       <Button onAction="#loadDataTextArea" text="Cargar datos en TextArea" />
       <TextArea prefHeight="200.0" prefWidth="200.0" fx:id="textArea" />
       <Button onAction="#loadDataTableView" text="Cargar datos en TableView" />
-      <TableView prefHeight="300.0" prefWidth="200.0" fx:id="tableView">
+      <TableView editable="true" prefHeight="300.0" prefWidth="200.0" fx:id="tableView">
         <columns>
           <TableColumn fx:id="colId" text="ID" prefWidth="100" />          
           <TableColumn fx:id="colNick" text="Nick" prefWidth="200" />

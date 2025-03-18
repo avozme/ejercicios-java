@@ -10,6 +10,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 
 public class PrimaryController {
 
@@ -39,6 +40,12 @@ public class PrimaryController {
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colNick.setCellValueFactory(new PropertyValueFactory<>("nick"));
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+
+        // Hacemos que las columnas nick y email sean editables (no el id)
+        colNick.setCellFactory(TextFieldTableCell.forTableColumn());
+        colEmail.setCellFactory(TextFieldTableCell.forTableColumn());
+
+        // Asignamos un manejador de eventos para cuando se editen las celdas de la tabla
         colNick.setOnEditCommit(event -> {
             // Cuando se edita el campo "nick", se guarda automáticamente
             Usuario usuario = event.getRowValue();
