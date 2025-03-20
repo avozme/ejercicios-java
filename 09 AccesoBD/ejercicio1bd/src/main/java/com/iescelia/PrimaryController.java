@@ -50,7 +50,7 @@ public class PrimaryController {
         Connection con = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://iescelia.org/evaluacion_lomloe", "celia360_user", "Ksav9p88");
+            con = DriverManager.getConnection("jdbc:mysql://iescelia.org/evaluacion_lomloe", "usrPrueba2", "N3e4wu9*");
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM usuarios");
             while (rs.next()) {
@@ -69,7 +69,7 @@ public class PrimaryController {
         Connection con = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://iescelia.org/evaluacion_lomloe", "celia360_user", "Ksav9p88");
+            con = DriverManager.getConnection("jdbc:mysql://iescelia.org/evaluacion_lomloe", "usrPrueba2", "N3e4wu9*");
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM usuarios");
             textArea.clear();
@@ -95,7 +95,11 @@ public class PrimaryController {
         Connection con = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
+<<<<<<< HEAD
             con = DriverManager.getConnection("jdbc:mysql://iescelia.org/evaluacion_lomloe", "user", "password");
+=======
+            con = DriverManager.getConnection("jdbc:mysql://iescelia.org/evaluacion_lomloe", "usrPrueba2", "N3e4wu9*");
+>>>>>>> cd98f3d576f2df927b3baf4240a76749fe69047b
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM usuarios");
             while (rs.next()) {
