@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:id="menu" fx:controller="com.iescelia.ArtistaController">
+    <TableView>
+        <columns>
+            <TableColumn text="Nombre">
+            </TableColumn>
+            <TableColumn text="Apellidos">
+            </TableColumn>
+            <TableColumn text="Fotografía">
+            </TableColumn>
+        </columns>
+      </TableView>
+</VBox>
