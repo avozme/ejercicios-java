@@ -1,3 +1,7 @@
+# Este archivo es un ejemplo de un archivo docker-compose.yml para ejecutar Tomcat 10.1 con una aplicación web en el contenedor.
+# También incluye un contenedor de base de datos MySQL. Puedes personalizarlo según tus necesidades.
+# Asegúrate de tener Docker y Docker Compose instalados en tu máquina antes de ejecutar este archivo.
+
 services:
   tomcat:
     image: docker.io/bitnami/tomcat:10.1
@@ -9,6 +13,22 @@ services:
       - ALLOW_EMPTY_PASSWORD=yes
       - TOMCAT_USERNAME=root
       - TOMCAT_PASSWORD=root
+  mysql:
+    image: docker.io/bitnami/mysql:8.4
+    ports:
+      - '3306:3306'
+    volumes:
+      - 'mysql_data:/bitnami/mysql/data'
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    healthcheck:
+      test: ['CMD', '/opt/bitnami/scripts/mysql/healthcheck.sh']
+      interval: 15s
+      timeout: 5s
+      retries: 6
 volumes:
   tomcat_data:
     driver: local
+  mysql_data:
+    driver: local 
+   
