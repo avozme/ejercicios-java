@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iescelia.PrimaryController">
+    <top>
+        <VBox alignment="CENTER">
+            <Label text="Ejemplo de include con fxml" />
+            <padding>
+              <Insets left="20.0" right="20.0" />
+            </padding>
+        </VBox>
+    </top>
+    <center>
+            <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Eventos">
+                  <content>
+                    <fx:include source="evento.fxml"/>
+                  </content>
+                </Tab>
+                <Tab text="Categorias">
+                  <content>
+                    <fx:include source="categoria.fxml"/>
+                  </content>
+                </Tab>
+                  <Tab text="Participantes">
+                     <content>
+                        <fx:include source="participante.fxml"/>
+                     </content>
+                  </Tab>
+                  <Tab text="Artistas">
+                     <content>
+                        <fx:include source="artista.fxml"/>
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+
+    </center>
+    <bottom>
+      <VBox alignment="CENTER">
+        <children>
+            <Label text="Ejercicios JavaFX" />
+            <Label text="(c) 2025 IES Celia Viñas" />
+        </children>
+        <padding>
+            <Insets bottom="20.0" />
+        </padding>
+      </VBox>
+    </bottom>
+   
+</BorderPane>
