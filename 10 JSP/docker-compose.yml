@@ -1,0 +1,14 @@
+services:
+  tomcat:
+    image: docker.io/bitnami/tomcat:10.1
+    ports:
+      - '8080:8080'
+    volumes:
+      - './code:/bitnami/tomcat/webapps/ROOT'
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - TOMCAT_USERNAME=root
+      - TOMCAT_PASSWORD=root
+volumes:
+  tomcat_data:
+    driver: local
