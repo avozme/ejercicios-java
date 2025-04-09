@@ -32,7 +32,8 @@
             <th>Email</th>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Profile image</th>
+            <th>Github profile</th>
+            <th>Photo</th>
         </tr>
     </thead>
     <tbody>
@@ -44,16 +45,17 @@
             String email = rs.getString("email");
             String firstName = rs.getString("first_name");
             String lastName = rs.getString("last_name");
-%>
-        <tr>
-            <td><%= id %></td>
-            <td><%= username %></td>
-            <td><%= email %></td>
-            <td><%= firstName %></td>
-            <td><%= lastName %></td>
-            <td><img src='https://thispersondoesnotexist.com/' height='100px'></td>
-        </tr>
-<%
+            String github = rs.getString("github_url");
+            String photo = rs.getString("photo");
+            out.println("<tr>" +
+                        "<td>" + id + "</td>" +
+                        "<td>" + username + "</td>" +
+                        "<td>" + email + "</td>" +
+                        "<td>" + firstName + "</td>" +
+                        "<td>" + lastName + "</td>" +
+                        "<td><a href='" + github + "'>Click here</a></td>" +
+                        "<td><img src='/imgs/" + photo + "' height='100px'></td>" +
+                        "</tr>");
         }
 %>
     </tbody>
