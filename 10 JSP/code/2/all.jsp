@@ -8,11 +8,11 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Lista de usuarios - Versión monolítica</title>
+    <title>Users List</title>
 </head>
 <body>
 
-<h2>Lista de usuarios - Versión monolítica</h2>
+<h2>Users List</h2>
 
 <%
     Connection conn = null;
@@ -38,6 +38,7 @@
             <th>Last Name</th>
             <th>Github profile</th>
             <th>Photo</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -59,11 +60,13 @@
                         "<td>" + lastName + "</td>" +
                         "<td><a href='" + github + "'>Click here</a></td>" +
                         "<td><img src='/imgs/" + photo + "' height='100px'></td>" +
+                        "<td><a href='/4/deleteUser?idUser=" + id + "'>Delete</a> - Modify</td>" +
                         "</tr>");
         }
 %>
     </tbody>
 </table>
+<p><a href="/3/newUser.jsp">Add New User</a></p>
 
 <%
     } catch (Exception e) {

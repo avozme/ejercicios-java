@@ -50,9 +50,9 @@
         
         int rowsAffected = ps.executeUpdate();
         if (rowsAffected > 0) {
-            out.println("<p>Usuario añadido con éxito.</p>");
+            out.println("<p>User added correctly</p>");
         } else {
-            out.println("<p>Error al añadir el usuario.</p>");
+            out.println("<p>Error adding user</p>");
         }
         ps.close();
         conn.close();
@@ -61,4 +61,4 @@
     } 
 %>
 
-<a href="newUser.jsp">Volver</a>
+<a href="newUser.jsp">Back</a>

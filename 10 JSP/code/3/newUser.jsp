@@ -6,11 +6,11 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Nuevo Usuario</title>
+    <title>Add New User</title>
 </head>
 <body>
 
-<h2>Nuevo usuario</h2>
+<h2>Add New User</h2>
 
 <form action="addUser.jsp" method="post">
     <label for="username">Username:</label>
