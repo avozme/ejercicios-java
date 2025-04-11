@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.sql.*" %>
+
+<!-- Este script muestra la lista de usuarios guardada en la tabla Users. 
+     Es una versión monolítica que no usa la arquitectura MVC -->
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
