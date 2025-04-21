@@ -21,11 +21,11 @@
     switch (doParam) {
         case "index":
         case "user/getAll":
-            // Llamamos al modelo y preparamos la variable users para la vista
+            // Llamamos al modelo para obtener la lista de usuarios de la BD
             List users = User.getAll();
             // Preparamos la variable users para la vista
             request.setAttribute("users", users);    
-            // Llamamos a la vista (tendrá disponible la variable users)
+            // Llamamos a la vista (ahora tendrá disponible la variable users)
             %><jsp:include page="views/userList.jsp" /><%
             break;
         default:
