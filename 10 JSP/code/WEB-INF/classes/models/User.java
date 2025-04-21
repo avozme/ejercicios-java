@@ -1,8 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%@ page import="java.sql.*" %>
-
-<%
 // MODELO DE USUARIOS
+package models;
+import java.sql.*;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,31 +36,34 @@ public class User {
     public String getPhoto() { return photo; }
 
     // Método estático para obtener todos los usuarios desde la BD
-    public static List<User> getAll() throws Exception {
+    public static List<User> getAll() {
         List<User> users = new ArrayList<>();
 
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conn = DriverManager.getConnection("jdbc:mysql://mysql:3306/pruebasJSP", "root", "");
-        Statement st = conn.createStatement();
-        ResultSet rs = st.executeQuery("SELECT * FROM Users");
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://mysql:3306/pruebasJSP", "root", "");
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM Users");
 
-        while (rs.next()) {
-            users.add(new User(
-                rs.getInt("id"),
-                rs.getString("username"),
-                rs.getString("email"),
-                rs.getString("first_name"),
-                rs.getString("last_name"),
-                rs.getString("github_url"),
-                rs.getString("photo")
-            ));
+            while (rs.next()) {
+                users.add(new User(
+                    rs.getInt("id"),
+                    rs.getString("username"),
+                    rs.getString("email"),
+                    rs.getString("first_name"),
+                    rs.getString("last_name"),
+                    rs.getString("github_url"),
+                    rs.getString("photo")
+                ));
+            }
+
+            rs.close();
+            st.close();
+            conn.close();
         }
-
-        rs.close();
-        st.close();
-        conn.close();
-
+        catch (Exception e) {
+            e.printStackTrace();
+        }
         return users;
     }
 }
-%>
