@@ -1,6 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@include file="UserController.jsp" %>
+<!-- Punto de entrada y enrutador de la aplicación.
+     Utiliza el parámetro "do" de la URL para saber qué hacer. -->
+
 <%
-  // Punto de entrada y enrutador de la aplicación.
-  // Leemos el parámetro "do" de la URL
     String doParam = request.getParameter("do");
     if (doParam == null) {
         doParam = "index";

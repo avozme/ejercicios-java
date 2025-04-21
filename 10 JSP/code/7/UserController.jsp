@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@include file="User.jsp" %>
 <%
 // CONTROLADOR DE USUARIOS
 import User;
@@ -10,3 +12,4 @@ public class UserController extends HttpServlet {
         View.show("userList.jsp", users);
     }
 }
+%>
