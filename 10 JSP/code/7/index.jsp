@@ -76,14 +76,14 @@
         case "user/update":  // ********** ACTUALIZAR USUARIO *******
             // Recogemos los datos del formulario y creamos un nuevo objeto usuario con él
             int updateId = Integer.parseInt(request.getParameter("id"));
-            String username = request.getParameter("username");
-            String email = request.getParameter("email");
-            String firstName = request.getParameter("firstName");
-            String lastName = request.getParameter("lastName");
-            String githubUrl = request.getParameter("githubUrl");
-            String photo = request.getParameter("photo");
+            String updatedUsername = request.getParameter("username");
+            String updatedEmail = request.getParameter("email");
+            String updatedFirstName = request.getParameter("firstName");
+            String updatedLastName = request.getParameter("lastName");
+            String updatedGithubUrl = request.getParameter("githubUrl");
+            String updatedPhoto = request.getParameter("photo");
             // Creamos un nuevo objeto User y lo actualizamos en la base de datos
-            User updatedUser = new User(updateId, username, email, firstName, lastName, githubUrl, photo);
+            User updatedUser = new User(updateId, updatedUsername, updatedEmail, updatedFirstName, updatedLastName, updatedGithubUrl, updatedPhoto);
             // Llamamos al modelo para actualizar el usuario en la BD
             updatedUser.save();
             // Redirigimos a la lista de usuarios
@@ -92,6 +92,6 @@
 
         default:   // ********** ACCIÓN NO ENCONTRADA *******
             // En caso de que no se encuentre la acción, mostramos una página de error
-            response.sendRedirect("404.jsp");
+            %><jsp:include page="views/404.jsp" /><%
     }
 %>

@@ -10,7 +10,8 @@
 </head>
 <body>
     <h2>Users List - Versión MVC</h2>
-    
+    <p><a href="?do=user/create">➕ Create new user</a></p>
+
     <table border="1">
         <thead>
             <tr>
@@ -27,7 +28,6 @@
         <tbody>
             <%
             List<User> users = (List<User>) request.getAttribute("users");
-            out.println("<h3>Users: " + users.size() + "</h3>");
             for (User user : users) {
                 out.print("<tr>");
                 out.print("<td>" + user.getId() + "</td>");
@@ -44,7 +44,6 @@
             %>
         </tbody>
     </table>
-    <a href="?do=user/create">➕ Create new user</a>
     
     </body>
 </html>
