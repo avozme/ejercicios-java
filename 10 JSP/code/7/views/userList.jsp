@@ -21,30 +21,30 @@
                 <th>Last Name</th>
                 <th>Github Profile</th>
                 <th>Photo</th>
-                <th>Editar</th>
-                <th>Borrar</th>
+                <th colspan="2">Actions</th>
             </tr>
         </thead>
         <tbody>
             <%
-                // Recuperamos la variable users que nos preparó el controlador
-                List<User> users = (List<User>) request.getAttribute("users");
-                for (User user : users) {
+            List<User> users = (List<User>) request.getAttribute("users");
+            out.println("<h3>Users: " + users.size() + "</h3>");
+            for (User user : users) {
+                out.print("<tr>");
+                out.print("<td>" + user.getId() + "</td>");
+                out.print("<td>" + user.getUsername() + "</td>");
+                out.print("<td>" + user.getEmail() + "</td>");
+                out.print("<td>" + user.getFirstName() + "</td>");
+                out.print("<td>" + user.getLastName() + "</td>");
+                out.print("<td><a href='" + user.getGithubUrl() + "' target='_blank'>Click here</a></td>");
+                out.print("<td><img src='/imgs/" + user.getPhoto() + "' height='100px'></td>");
+                out.print("<td><a href='?do=user/edit&id=" + user.getId() + "'>✏️ Editar</a></td>");
+                out.print("<td><a href='?do=user/delete&id=" + user.getId() + "' onclick=\"return confirm('¿Estás seguro de que quieres borrar a " + user.getUsername() + "?');\">🗑️ Borrar</a></td>");
+                out.print("</tr>");
+            }
             %>
-            <tr>
-                <td><%= user.getId() %></td>
-                <td><%= user.getUsername() %></td>
-                <td><%= user.getEmail() %></td>
-                <td><%= user.getFirstName() %></td>
-                <td><%= user.getLastName() %></td>
-                <td><a href="<%= user.getGithubUrl() %>" target="_blank">Click here</a></td>
-                <td><img src="/imgs/<%= user.getPhoto() %>" height="100px"></td>
-                <td><a href="?do=user/edit&id=<%= user.getId() %>">✏️ Editar</a></td>
-                <td><a href="?do=user/delete&id=<%= user.getId() %>" onclick="return confirm('¿Estás seguro de que quieres borrar a <%= user.getUsername() %>?');">🗑️ Borrar</a></td>
-            </tr>
-            <% } %>
         </tbody>
     </table>
+    <a href="?do=user/create">➕ Create new user</a>
     
     </body>
 </html>
