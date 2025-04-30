@@ -2,9 +2,9 @@
      Utiliza el parámetro "do" de la URL para saber qué hacer. 
      
      ¡¡OJO!! Esto no es una solución MVC óptima. Eso lo aprenderás a hacer
-     en 2º curso. En particular, en controlador no debería hacer en enrutamiento.
+     en 2º curso. En particular, en controlador no debería hacer el enrutamiento.
 
-     ¡¡ESTO SOLO ES UNA PRIMERA APROXIMACIÓN!! -->
+     ¡¡ESTO SOLO ES UNA PRIMERA APROXIMACIÓN A UNA WEBAPP MVC!! -->
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page import="models.User" %>
@@ -12,6 +12,8 @@
 <%@ page import="java.util.ArrayList" %>
 
 <%
+    // Capturamos el parámetro "do" de la URL. Si no existe, le asignamos un valor por defecto.
+    // Este parámetro indica al controlador qué acción hay que realizar.
     String doParam = request.getParameter("do");
     if (doParam == null) {
         doParam = "user/getAll";  // Acción por defecto
