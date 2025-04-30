@@ -14,13 +14,12 @@
 <%
     String doParam = request.getParameter("do");
     if (doParam == null) {
-        doParam = "index";
+        doParam = "user/getAll";  // Acción por defecto
     }
 
 
     // Enrutamos a la acción correspondiente
     switch (doParam) {
-        case "index":
         case "user/getAll":  // ********** LISTA DE USUARIOS *******
             // Llamamos al modelo para obtener la lista de usuarios de la BD
             List users = User.getAll();
