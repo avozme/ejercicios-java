@@ -17,6 +17,7 @@
         doParam = "index";
     }
 
+
     // Enrutamos a la acción correspondiente
     switch (doParam) {
         case "index":
@@ -49,7 +50,7 @@
             User newUser = new User(username, email, firstName, lastName, githubUrl, photo);
             newUser.save();
             // Redirigimos a la lista de usuarios
-            response.sendRedirect("?do=user/getAll");
+            response.sendRedirect("index.jsp?do=user/getAll");
             break;
 
         case "user/delete":  // ********** BORRAR USUARIO *******
@@ -58,7 +59,7 @@
             // Llamamos al modelo para borrar el usuario
             User.delete(deleteId);
             // Redirigimos a la lista de usuarios
-            response.sendRedirect("?do=user/getAll");
+            response.sendRedirect("index.jsp?do=user/getAll");
             break;
 
         case "user/edit":   // ********** MOSTRAR FORMULARIO EDITAR USUARIO *******
@@ -87,7 +88,7 @@
             // Llamamos al modelo para actualizar el usuario en la BD
             updatedUser.save();
             // Redirigimos a la lista de usuarios
-            response.sendRedirect("?do=user/getAll");
+            response.sendRedirect("index.jsp?do=user/getAll");
             break;
 
         default:   // ********** ACCIÓN NO ENCONTRADA *******

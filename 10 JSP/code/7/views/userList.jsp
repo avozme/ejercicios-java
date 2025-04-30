@@ -10,7 +10,7 @@
 </head>
 <body>
     <h2>Users List - Versión MVC</h2>
-    <p><a href="?do=user/create">➕ Create new user</a></p>
+    <p><a href="index.jsp?do=user/create">➕ Create new user</a></p>
 
     <table border="1">
         <thead>
@@ -37,8 +37,8 @@
                 out.print("<td>" + user.getLastName() + "</td>");
                 out.print("<td><a href='" + user.getGithubUrl() + "' target='_blank'>Click here</a></td>");
                 out.print("<td><img src='/imgs/" + user.getPhoto() + "' height='100px'></td>");
-                out.print("<td><a href='?do=user/edit&id=" + user.getId() + "'>✏️ Editar</a></td>");
-                out.print("<td><a href='?do=user/delete&id=" + user.getId() + "' onclick=\"return confirm('¿Estás seguro de que quieres borrar a " + user.getUsername() + "?');\">🗑️ Borrar</a></td>");
+                out.print("<td><a href='index.jsp?do=user/edit&id=" + user.getId() + "'>✏️ Editar</a></td>");
+                out.print("<td><a href='index.jsp?do=user/delete&id=" + user.getId() + "' onclick=\"return confirm('¿Estás seguro de que quieres borrar a " + user.getUsername() + "?');\">🗑️ Borrar</a></td>");
                 out.print("</tr>");
             }
             %>
