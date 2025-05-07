@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ page import="java.util.List" %>
 <%@ page import="models.User" %>
-
+<!-- Esta vista muestra la lista de usuarios. -->
+<!-- La lista de usuarios viene del controlador llega a esta vista como un parámetro de la URL -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -27,6 +28,8 @@
         </thead>
         <tbody>
             <%
+            // Recogemos la lista de usuarios que viene del controlador
+            // y la guardamos en una variable para usarla en el bucle.
             List<User> users = (List<User>) request.getAttribute("users");
             for (User user : users) {
                 out.print("<tr>");
