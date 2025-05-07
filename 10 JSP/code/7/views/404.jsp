@@ -10,6 +10,6 @@
 </head>
 <body>
     <h2>404 - Not found</h2>
-    <a href="?do=user/getAll">Back to the User List</a>
+    <a href="index.jsp?do=user/getAll">Back to the User List</a>
     </body>
 </html>

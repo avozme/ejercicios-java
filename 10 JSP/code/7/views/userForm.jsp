@@ -11,10 +11,6 @@
     String photo = user.getPhoto();
     int userId = user.getId();
 
-
-    if (user == null) {
-        user = new User(); // Evita null pointer en campos vacíos
-    }
 %>
 
 <h2>

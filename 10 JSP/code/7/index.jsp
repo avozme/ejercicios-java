@@ -90,6 +90,20 @@
             response.sendRedirect("index.jsp?do=user/getAll");
             break;
 
+        case "user/search":  // ********** BUSCAR USUARIO *******
+            // Recogemos el término de búsqueda del formulario
+            out.println("Hola");
+            //String searchTerm = request.getParameter("search");
+            //out.println("Buscando usuarios con el término: " + searchTerm);
+
+            // Llamamos al modelo para buscar los usuarios que coincidan con el término
+            //List<User> searchResults = User.get(searchTerm);
+            // Preparamos la variable users para la vista
+            //request.setAttribute("users", searchResults);
+            // Llamamos a la vista (ahora tendrá disponible la variable users)
+            //%><jsp:include page="views/userList.jsp" /><%
+            break;
+
         default:   // ********** ACCIÓN NO ENCONTRADA *******
             // En caso de que no se encuentre la acción, mostramos una página de error
             %><jsp:include page="views/404.jsp" /><%
